@@ -1,20 +1,11 @@
- <!-- [ngClass]="{'beginner': false, 'course-card':true}" -->
-
 <div class="course-card" *ngIf="course"
     [ngClass]="cardClasses()">
-    <!-- ngClass is used for conditional styling, when add or remove style of template depending on content of data -->
 
-    <!-- dislay card object when course object is defined -->
-
-    <div class="course-title">
+    <!-- style is dom property not ng specific [style.text-decoration]-->
+    <!-- define ngStyle for props that is dynamic and depend on content of data -->
+    <div class="course-title" [ngStyle]="cardStyles()">
         {{ cardIndex + ":" + " " + course.description}}
     </div>
-
-    <!-- if image not shown, hide the image and replace -->
-    <!-- ngIf, if there is iconURL == true else false -->
-    <img width="300" alt="Angular Logo"
-        *ngIf="isImageVisible() else noImage"
-        [src]="course.iconUrl">
 
     <ng-template #noImage>
         <p>No image is available.</p>
@@ -22,10 +13,9 @@
 
     <div class="course-description">
         {{course.longDescription}}
-        <!-- use elvis opeartor in case of error -->
+
     </div>
 
-    <!-- (click) native browser event -->
     <button (click)="onCourseViewed()">View Course</button>
 
 </div>

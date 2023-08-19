@@ -40,14 +40,17 @@ export class CourseCardComponent implements OnInit {
   }
 
   cardClasses() {
-
     if (this.course.category == 'BEGINNER') {
       return 'beginner'
     }
 
-    // return {
-    //   'beginner': this.course.category == 'BEGINNER',
-    // }
+  }
+
+  cardStyles() {
+    return {
+      'text-decoration': 'underline',
+      'background-image': 'url(' + this.course.iconUrl + ')'
+    }
   }
 
 }
