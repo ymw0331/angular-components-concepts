@@ -1,13 +1,23 @@
-<div class="course-card">
+<div class="course-card" *ngIf="course">
+    <!-- dislay card object when course object is defined -->
 
     <div class="course-title">
         {{ cardIndex + ":" + " " + course.description}}
     </div>
+
+    <!-- if image not shown, hide the image and replace -->
+    <!-- ngIf, if there is iconURL == true else false -->
     <img width="300" alt="Angular Logo"
+        *ngIf="isImageVisible() else noImage"
         [src]="course.iconUrl">
+
+    <ng-template #noImage>
+        <p>No image is available.</p>
+    </ng-template>
 
     <div class="course-description">
         {{course.longDescription}}
+        <!-- use elvis opeartor in case of error -->
     </div>
 
     <!-- (click) native browser event -->
