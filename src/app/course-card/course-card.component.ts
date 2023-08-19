@@ -39,4 +39,15 @@ export class CourseCardComponent implements OnInit {
     this.courseEmitter.emit(this.course) // custom event -> emit to pass selected course as payload
   }
 
+  cardClasses() {
+
+    if (this.course.category == 'BEGINNER') {
+      return 'beginner'
+    }
+
+    // return {
+    //   'beginner': this.course.category == 'BEGINNER',
+    // }
+  }
+
 }

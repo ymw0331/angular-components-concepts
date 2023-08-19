@@ -1,4 +1,9 @@
-<div class="course-card" *ngIf="course">
+ <!-- [ngClass]="{'beginner': false, 'course-card':true}" -->
+
+<div class="course-card" *ngIf="course"
+    [ngClass]="cardClasses()">
+    <!-- ngClass is used for conditional styling, when add or remove style of template depending on content of data -->
+
     <!-- dislay card object when course object is defined -->
 
     <div class="course-title">
