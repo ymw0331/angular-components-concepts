@@ -13,10 +13,13 @@ export class CourseCardComponent implements OnInit {
   @Input({ required: true })
   course: Course;
 
-  // custom event -> emit custom event from app
-  // ng take the name of custom event from name of event emitter
+  @Input()
+  cardIndex: number;
+
   @Output('courseSelected')
   courseEmitter = new EventEmitter<Course>();
+
+
 
   constructor() {
 
