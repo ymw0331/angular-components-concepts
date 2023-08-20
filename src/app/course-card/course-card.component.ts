@@ -9,6 +9,7 @@ import { Course } from '../model/course';
 })
 export class CourseCardComponent implements OnInit {
 
+  // programmatic reference of the template
 
   @Input({ required: true })
   course: Course;

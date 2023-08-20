@@ -4,10 +4,10 @@
         [ngClass]="cardClasses()">
 
         <div class="course-title">
-            {{ cardIndex + ":" + " " + course.description}}
+            {{ cardIndex || '' + " " + course.description}}
         </div>
 
-        <img width="300" alt="Angular Logo"
+        <img #courseImage width="300" alt="Angular Logo"
             *ngIf="isImageVisible() else noImage"
             [src]="course.iconUrl">
 
