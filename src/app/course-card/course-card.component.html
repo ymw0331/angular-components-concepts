@@ -7,16 +7,6 @@
             {{ cardIndex || '' + " " + course.description}}
         </div>
 
-        <ng-content select="course-image">
-            <!-- Add this as image placeholder of sort -->
-            <!-- It takes in anything in the tag as in ng-content to project here -->
-        </ng-content>
-
-        <ng-content select=".course-description"></ng-content>
-
-        <ng-content></ng-content>
-
-        <!-- Content projection is bout making configurable compoenents, customise look and feel of components -->
 
         <ng-container [ngSwitch]="course.category">
             <div class="course-category">
