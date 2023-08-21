@@ -4,16 +4,39 @@
         src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
 </div>
 
-<div class="courses" #container>
+<div class="courses" *ngIf="courses[0] as course">
 
-    <course-card #cardRef1
+    <course-card
         (courseSelected)="onCourseSelected($event)"
-        [course]="courses[0]">
+        [course]="course">
+
+        <div class="course-image">
+            <!-- projected in ng-tempalte in course card component -->
+            <img class="course-image" width="300" alt="Angular Logo"
+                [src]="course.iconUrl">
+
+            <h5>Total Lessons : 5</h5>
+
+        </div>
+
+        <div class="course-description">
+            {{course.longDescription}}
+        </div>
+
+        Edit Description : <textarea></textarea>
+
     </course-card>
 
-    <course-card #cardRef2
+    <course-card
         (courseSelected)="onCourseSelected($event)"
         [course]="courses[1]">
+
+        <!-- projected in ng-tempalte in course card component -->
+        <!-- <img width="300" alt="Angular Logo"
+            [src]="course.iconUrl"> -->
+
+        <h5>Total Lessons : 5</h5>
+
     </course-card>
 
 </div>
