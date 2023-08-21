@@ -1,4 +1,4 @@
-<ng-container *ngIf="course">
+<ng-container *ngIf="course" #container>
 
     <div class="course-card"
         [ngClass]="cardClasses()">
@@ -7,7 +7,7 @@
             {{ cardIndex || '' + " " + course.description}}
         </div>
 
-        <ng-content select=".course-image">
+        <ng-content select="course-image">
             <!-- Add this as image placeholder of sort -->
             <!-- It takes in anything in the tag as in ng-content to project here -->
         </ng-content>
