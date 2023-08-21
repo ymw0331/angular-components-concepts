@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ContentChild, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, ViewChild } from '@angular/core';
 import { Course } from '../model/course';
 import { CourseImageComponent } from '../course-image/course-image.component';
 
@@ -8,7 +8,7 @@ import { CourseImageComponent } from '../course-image/course-image.component';
   templateUrl: './course-card.component.html',
   styleUrls: ['./course-card.component.css']
 })
-export class CourseCardComponent implements OnInit, AfterViewInit {
+export class CourseCardComponent implements OnInit, AfterViewInit, AfterContentInit {
 
   // programmatic reference of the template
   @Input({ required: true })
@@ -25,16 +25,22 @@ export class CourseCardComponent implements OnInit, AfterViewInit {
   container;
 
 
-  @ContentChild(CourseImageComponent, { read: ElementRef })
-  image: ElementRef;
+  // When to use: this is needed if using content projection (ngContent), if need programmatic reference to projected content
+  // ViewChild : useful when building component, need programmatic reference  
+  @ContentChildren(CourseImageComponent, { read: ElementRef })
+  images: QueryList<CourseImageComponent>;
 
   constructor() {
   }
 
   ngAfterViewInit() {
-    console.log(this.image)
-    console.log(this.container)
   }
+
+  ngAfterContentInit() {
+    console.log(this.images)
+
+  }
+
 
   ngOnInit() {
   }
