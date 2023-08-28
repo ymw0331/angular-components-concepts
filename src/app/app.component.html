@@ -2,8 +2,28 @@
 
     <img class="logo"
         src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
-
 </div>
+
+<div class="demo">
+    <!-- <div>Start Date: {{startDate | date: 'dd MMM yyyy'}} </div>
+
+    <div>{{title | titlecase}}</div>
+
+    <div>{{price | number: '3.3-5'}}</div>
+
+    <div>{{price | currency: 'JPY'}}</div>
+
+    <div>{{rate | percent}}</div> -->
+</div>
+
+<!-- {{courses | json}} -->
+<!-- for debugging purpose -->
+
+<!-- <div *ngFor="let pair of course | keyvalue">
+
+    {{pair.key + ':  ' + pair.value}}
+
+</div> -->
 
 <div class="courses">
     <!-- courseSelected (custom event) is emitted from courseCard comp -->
@@ -12,7 +32,7 @@
     even as isEven;
     odd as isOdd; -->
     <course-card
-        *ngFor="let course of courses; 
+        *ngFor="let course of courses 
         index as i; 
   
         "
