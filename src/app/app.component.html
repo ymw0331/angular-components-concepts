@@ -11,10 +11,6 @@
         <img src="/assets/empty-image.png">
     </ng-template>
 
-    <ng-container
-        *ngTemplateOutlet="blankImage; context:{description: course.description}">
-    </ng-container>
-
     <!-- ngContainer tag is a great way of using ngTemplateOutlet, because we dont have to create an extra element just to instantiate a template -->
 
     <hr>
@@ -22,7 +18,7 @@
 
     <course-card
         (courseSelected)="onCourseSelected($event)"
-        [course]="course">
+        [course]="course" [noImageTpl]="blankImage">
 
         <course-image [src]="course.iconUrl"></course-image>
 
@@ -33,4 +29,3 @@
     </course-card>
 
 </div>
-
