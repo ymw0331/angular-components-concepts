@@ -4,16 +4,22 @@
         src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
 </div>
 
-<div class="courses" #container>
+<div class="courses" *ngIf="courses[0] as course">
 
-    <course-card #cardRef1
+    <course-card
         (courseSelected)="onCourseSelected($event)"
-        [course]="courses[0]">
-    </course-card>
+        [course]="course">
 
-    <course-card #cardRef2
-        (courseSelected)="onCourseSelected($event)"
-        [course]="courses[1]">
+        <course-image [src]="course.iconUrl"></course-image>
+        <course-image [src]="courses[1].iconUrl"></course-image>
+        <course-image [src]="courses[2].iconUrl"></course-image>
+
+        <div class="course-description">
+            {{course.longDescription}}
+        </div>
+
+        Edit Description : <textarea></textarea>
+
     </course-card>
 
 </div>

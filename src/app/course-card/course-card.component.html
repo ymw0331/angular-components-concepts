@@ -1,4 +1,4 @@
-<ng-container *ngIf="course">
+<ng-container *ngIf="course" #container>
 
     <div class="course-card"
         [ngClass]="cardClasses()">
@@ -7,17 +7,6 @@
             {{ cardIndex || '' + " " + course.description}}
         </div>
 
-        <img #courseImage width="300" alt="Angular Logo"
-            *ngIf="isImageVisible() else noImage"
-            [src]="course.iconUrl">
-
-        <ng-template #noImage>
-            <p>No image is available.</p>
-        </ng-template>
-
-        <div class="course-description">
-            {{course.longDescription}}
-        </div>
 
         <ng-container [ngSwitch]="course.category">
             <div class="course-category">
